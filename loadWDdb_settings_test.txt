@@ -16,5 +16,5 @@ hierarchy	file
 # 格納するcollection名，およびN-Tripleデータファイル
 data	class	"wd-data/test_P279.nt"
 data	instance	"wd-data/test_P31.nt"
-data	literal	"wd-data/en-label.nt"
-data	literal	"wd-data/en-altLabel.nt"
+data	literal	"wd-data/test_ja-label.nt"
+data	literal	"wd-data/test_ja-altLabel.nt"

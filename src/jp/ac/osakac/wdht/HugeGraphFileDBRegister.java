@@ -1,4 +1,4 @@
-package jp.ac.osakac.hugedb;
+package jp.ac.osakac.wdht;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

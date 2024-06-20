@@ -1,4 +1,4 @@
-package jp.ac.osakac.hugedb;
+package jp.ac.osakac.wdht;
 
 public class HugeGraph {
 //	private MongoDBConnector conn;

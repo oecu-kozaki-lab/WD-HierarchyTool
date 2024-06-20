@@ -1,0 +1,20 @@
+# 接続するMongoDBの接続設定
+# （ユーザ/パスは指定しない設定）
+## server
+server	localhost
+## port
+port	27017
+## DB名
+dbName	vocab
+
+## ファイル出力baseディレクトリ
+basedir	"storeEn"
+
+## 階層情報格納方法(file/db)
+hierarchy	file
+
+# 格納するcollection名，およびN-Tripleデータファイル
+data	class	"wd-data/test_P279.nt"
+data	instance	"wd-data/test_P31.nt"
+data	literal	"wd-data/en-label.nt"
+data	literal	"wd-data/en-altLabel.nt"

@@ -1,0 +1,55 @@
+## ローカルデータ格納場所
+basedir	"store"
+
+## データ抽出情報
+
+## 共通上位をどこから取得するか (file/word)
+### fileの場合は上位リストを直接ファイルから読み出す
+### wordの場合はワードリストのリソース上位を抽出してファイルに吐き出す
+source	word
+
+# 以下項目はsourceがwordの場合は必須
+## ワードリスト
+wordList	"settings/resources_test.txt"
+## 上位リスト出力先 
+outputUpperList	"uppers_test.txt"
+
+# 以下項目はsourceがfileの場合は必須
+## 上位リスト入力元 (この設定では出力には利用されない)
+inputUpperList	"settings/uppers_test.txt"
+
+## ストップリスト
+stopList	"settings/stops_50k.txt"
+
+## 共通上位の閾値
+threshold	3
+
+## 探索深さ
+depth	2
+
+## 重複リソースで探索を止めるか (yes/no)
+stopDuplication	yes
+
+## instanceを取得するか (yes/no)
+getInstance	no
+
+## ラベルの無いEntityをスキップするか (yes/no)
+skipNoLabelEntity	yes
+
+## ラベル取得するか (yes/no)
+getLabel	yes
+
+## altラベル取得するか (yes/no)
+getAltLabel	yes
+
+## description取得するか (yes/no)
+getDescription	no
+
+## 出力先ファイル
+outFile	"ont_test.nt"
+
+## 出力方法 (stream/mem)
+### streamの場合はファイルストリームに吐き出す
+### memの場合はメモリに蓄積し，処理完了時にファイルに出力する
+### 注：memを使うと，getInstanceとskipNoLabelEntityの設定が使えない
+outputType	stream

@@ -70,6 +70,8 @@ public class TripleFileRegister {
 	}
 
 	private boolean processLine(String line) {
+		//System.out.println("..."+line);
+		
 		//末尾の「.」を最初に削除しておく
 		if (line.trim().endsWith(".")) {
 			line = line.trim();
@@ -84,7 +86,8 @@ public class TripleFileRegister {
 
 		//目的語に空白が含まれていた時のエラー回避処理
 		if (spo.length > 3) {
-			spo[2] = line.substring(line.indexOf(spo[2],spo[0].length())+spo[2].length());
+			int st = line.indexOf(spo[2],spo[0].length()+spo[1].length());
+			spo[2] = line.substring(st);
 		}
 		
 		if (spo[2].trim().endsWith(".")) {

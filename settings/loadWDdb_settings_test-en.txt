@@ -1,12 +1,3 @@
-# 接続するMongoDBの接続設定
-# （ユーザ/パスは指定しない設定）
-## server
-server	localhost
-## port
-port	27017
-## DB名
-dbName	vocab
-
 ## ファイル出力baseディレクトリ
 basedir	"storeEn"
 

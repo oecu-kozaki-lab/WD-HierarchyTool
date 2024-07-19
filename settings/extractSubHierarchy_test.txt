@@ -19,7 +19,7 @@ outputUpperList	"uppers_top.txt"
 inputUpperList	"settings/uppers_top.txt"
 
 ## ストップリスト
-stopList	"settings/stops_50k.txt"
+stopList	"settings/stops_0.txt"
 
 ## 共通上位の閾値
 threshold	1

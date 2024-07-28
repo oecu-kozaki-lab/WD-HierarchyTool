@@ -4,3 +4,6 @@
 *.jar
 *.zip
 /wd-all
+*.classpath
+*.project
+*.bat

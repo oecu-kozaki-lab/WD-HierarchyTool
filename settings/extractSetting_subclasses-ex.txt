@@ -6,7 +6,7 @@
 
 
 # Location of local index folder
-basedir	"store"
+basedir	"store_test"
 
 
 ### Settings for class hierarchy extraction 
@@ -23,7 +23,7 @@ source	word
 wordList	"settings/resources.txt"
 
 # File name to output upper classes to be used as root
-outputUpperList	"uppers.txt"
+outputUpperList	"output/uppers.txt"
 
 
 ## The following an item is required if the source setting is "file".
@@ -62,7 +62,7 @@ getAltLabel	yes
 getDescription	no
 
 # File name to output
-outFile	"output_subclass-ex.nt"
+outFile	"output/subclass-ex.nt"
 
 # Output method (stream/mem)
 # - stream: Output using file streams

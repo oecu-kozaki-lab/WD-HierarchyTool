@@ -65,7 +65,7 @@ public class HugeDBHierarchyFile {
 
 	private static void error() {
 		System.out.println("usage:");
-		System.out.println("\tjava -jar HugeDBHierarchyFile.jar {settingFile}");
+		System.out.println("\tjava jp.ac.osakac.wdht.HugeDBHierarchyFile.jar HugeGraphFileDBRegister <setting file>");
 	}
 
 	public HugeDBHierarchyFile(String iniFile) throws FileNotFoundException {
@@ -227,6 +227,13 @@ public class HugeDBHierarchyFile {
 					val = val.substring(1, val.length()-1);
 				}
 				this.outUpperFile = new File(val.trim());
+				//指定したディレクトリが存在しないときのエラー回避処理
+				File parent = outUpperFile.getParentFile();
+				if(parent!=null) {
+					if(!parent.exists()) {
+						parent.mkdirs();
+					}
+				}
 			}
 			if (cmd.equals("inputupperlist")) {
 				val = val.trim();
@@ -249,6 +256,14 @@ public class HugeDBHierarchyFile {
 					val = val.substring(1, val.length()-1);
 				}
 				this.outFile = new File(val.trim());
+				//指定したディレクトリが存在しないときのエラー回避処理
+				File parent = outFile.getParentFile();
+				if(parent!=null) {
+					if(!parent.exists()) {
+						parent.mkdirs();
+					}
+				}
+				
 			}
 			if (cmd.equals("getlabel")) {
 				this.isGetLabel = val.trim().toLowerCase().equals("yes");

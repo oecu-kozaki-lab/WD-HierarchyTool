@@ -6,7 +6,7 @@
 
 
 # Location of local index folder
-basedir	"store"
+basedir	"store_test"
 
 # Method of storing index (fixed)
 hierarchy	file

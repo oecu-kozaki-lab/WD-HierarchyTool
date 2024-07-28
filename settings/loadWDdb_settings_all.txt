@@ -1,0 +1,16 @@
+## ファイル出力baseディレクトリ
+basedir	"store"
+
+## 階層情報格納方法(file/db)
+hierarchy	file
+
+# 格納するcollection名，およびN-Tripleデータファイル
+#data	class	"wd-data/test_P279.nt"
+#data	instance	"wd-data/test_P31.nt"
+#data	literal	"wd-all/wd_ja-label.nt"
+#data	altlabel	"wd-all/wd_ja-altLabel.nt"
+#data	literal	"wd-all/wd_en-label.nt"
+#data	altlabel	"wd-all/wd_en-altLabel.nt"
+data	description	"wd-all/ja-description.nt"
+data	description	"wd-all/en-description.nt"
+

@@ -331,19 +331,25 @@ public class HugeDBHierarchyFile {
 
 		// キーワードを取得
 		try {
-			wordList = getLineList(this.wordFile);
-			stopList = getLineList(this.stopFile);
+			if(this.wordFile!=null) {
+				wordList = getLineList(this.wordFile);
+			}
+			if(this.stopFile!=null) {
+				stopList = getLineList(this.stopFile);	
+			}
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
-		if (wordList == null) {
-			System.err.println("File Error:["+this.wordFile+"]");
-		}
+		
 
 		List<String> globalConceptList = null;
 
 		if (this.source.equals("word")) {
+			if (wordList == null) {
+				System.err.println("File Error:wordList ["+this.wordFile+"] is not founded.");
+			}
+			
 			// キーワードに対応する概念と，その上位階層を取得
 			for (String word : wordList) {
 				getUpperMap(hg, hgf, word, map);
@@ -834,8 +840,10 @@ System.out.println(" *skip");
 			return count;
 		}
 		// ストップリストに追加されていれば下位は取得しない
-		if (stopList.contains(concept)) {
-			return count;
+		if(stopList!=null) {
+			if (stopList.contains(concept)) {
+				return count;
+			}
 		}
 
 		if (!(lowerMap.contains(concept) && this.isStopDuplication)) {

@@ -1,0 +1,22 @@
+##### Setting file for Storing Local Indexes using WD-HierarchyTool #####
+#
+# - Please insert a tab between each setting item and its corresponding value.
+# - Lines beginning with # are comments.
+# - Please use relative paths to specify file names in this setting.
+
+
+# Location of local index folder
+basedir	"store_test"
+
+# Method of storing index (fixed)
+hierarchy	file
+
+# Type of index and source file (N-Triple)
+data	class	"wd-data/test_P279.nt"
+data	instance	"wd-data/test_P31.nt"
+data	literal	"wd-data/test_en-label.nt"
+data	literal	"wd-data/test_en-altLabel.nt" 
+data	literal	"wd-data/test_en-description.nt" 
+data	literal	"wd-data/test_ja-label.nt"
+data	literal	"wd-data/test_ja-altLabel.nt" 
+data	literal	"wd-data/test_ja-description.nt" 

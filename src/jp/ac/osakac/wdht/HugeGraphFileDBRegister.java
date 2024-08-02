@@ -100,7 +100,7 @@ System.out.println("basedir:["+this.baseDir+"]");
 //			TripleRegister register = null;
 			try {
 				if (coll.equals("class")) {
-					System.out.println("階層構造を格納："+path);
+					System.out.println("Indexing class hierarchies : "+path);
 //					if (this.hierarchy.equals("file")) {
 						fregister = new HierarchyFileRegister(this.baseDir, path);
 //					} else {
@@ -108,7 +108,7 @@ System.out.println("basedir:["+this.baseDir+"]");
 //					}
 				}
 				if (coll.equals("instance")) {
-					System.out.println("インスタンスを格納："+path);
+					System.out.println("Indexing instances : "+path);
 //					if (this.hierarchy.equals("file")) {
 						fregister = new InstanceFileRegister(this.baseDir, path);
 //					} else {
@@ -117,7 +117,7 @@ System.out.println("basedir:["+this.baseDir+"]");
 				}
 
 				if (coll.equals("literal") || coll.equals("label")) {
-					System.out.println("リテラル情報(label)を格納："+path);
+					System.out.println("Indexing literal data (label) : "+path);
 //					if (this.hierarchy.equals("file")) {
 //						System.out.println(" !リテラル情報をファイルに保存する場合，逆引き検索ができません");
 //						System.out.println(" !逆引きを行う場合，DBにも同じデータを格納してください");
@@ -127,7 +127,7 @@ System.out.println("basedir:["+this.baseDir+"]");
 //					}
 				}
 				if (coll.equals("altlabel")) {
-					System.out.println("リテラル情報(altlabel)を格納："+path);
+					System.out.println("Indexing literal data (altLabel) : "+path);
 //					if (this.hierarchy.equals("file")) {
 //						System.out.println(" !リテラル情報をファイルに保存する場合，逆引き検索ができません");
 //						System.out.println(" !逆引きを行う場合，DBにも同じデータを格納してください");
@@ -137,7 +137,7 @@ System.out.println("basedir:["+this.baseDir+"]");
 //					}
 				}
 				if (coll.equals("description")) {
-					System.out.println("リテラル情報(description)を格納："+path);
+					System.out.println("Indexing literal data (description) : "+path);
 //					if (this.hierarchy.equals("file")) {
 //						System.out.println(" !リテラル情報をファイルに保存する場合，逆引き検索ができません");
 //						System.out.println(" !逆引きを行う場合，DBにも同じデータを格納してください");
@@ -153,9 +153,9 @@ System.out.println("basedir:["+this.baseDir+"]");
 //					System.out.println("処理完了："+getCurrentTime());
 //				}
 				if (fregister != null) {
-					System.out.println("処理開始："+getCurrentTime());
+					System.out.println("Start : "+getCurrentTime());
 					fregister.process();
-					System.out.println("処理完了："+getCurrentTime());
+					System.out.println("Complete : "+getCurrentTime());
 				}
 			} catch (FileNotFoundException e) {
 				// TODO 自動生成された catch ブロック
@@ -238,6 +238,6 @@ System.out.println("basedir:["+this.baseDir+"]");
 
 	private static void error() {
 		System.out.println("usage:");
-		System.out.println("\tjava -jar HugeGraphFile.jar {registerFile}");
+		System.out.println("\tjava jp.ac.osakac.wdht.HugeGraphFileDBRegister <setting file>");
 	}
 }

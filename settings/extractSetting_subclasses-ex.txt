@@ -1,0 +1,71 @@
+##### Setting file for Extracting Class Hierarchies using WD-HierarchyTool #####
+#
+# - Please insert a tab between each setting item and its corresponding value.
+# - Lines beginning with # are comments.
+# - Please use relative paths to specify file names in this setting.
+
+
+# Location of local index folder
+basedir	"store_test"
+
+
+### Settings for class hierarchy extraction 
+
+# How to specify the root of the class hierarchy to extract (file/word)
+# - file: Specify root class listings by file
+# - word: Conduct a bottom-up search for common upper classes as roots from a list of sub-concepts (words)
+source	word
+
+
+## The following two items are required if the source setting is "word".
+
+# The list of sub-concepts (words)
+wordList	"settings/resources.txt"
+
+# File name to output upper classes to be used as root
+outputUpperList	"output/uppers.txt"
+
+
+## The following an item is required if the source setting is "file".
+
+# Filename of the root class list to be input
+inputUpperList	"settings/uppers_ex.txt"
+
+
+## Other settings
+
+# File name of the stop list
+stopList	"settings/stops.txt"
+
+# Threshold for determining root class
+threshold	1
+
+# Depth of class hierarchy to search
+depth	2
+
+# Skip searching for duplicate subclasse? (yes/no)
+stopDuplication	yes
+
+# Skip searching for entities (subclasses/instances) that do not have labels? (yes/no)
+skipNoLabelEntity	yes
+
+# Explore instances? (yes/no)
+getInstance	no
+
+# Get labels? (yes/no)
+getLabel	yes
+
+# Get alt-labels? (yes/no)
+getAltLabel	yes
+
+# Get descriptions? (yes/no)
+getDescription	no
+
+# File name to output
+outFile	"output/subclass-ex.nt"
+
+# Output method (stream/mem)
+# - stream: Output using file streams
+# - mem: Stored in memory and output to file when processing is complete
+#  * If "mem" is selected, "getInstance" and "skipNoLabelEntity" settings are not available.
+outputType	stream

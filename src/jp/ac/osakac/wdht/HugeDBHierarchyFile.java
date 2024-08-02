@@ -65,7 +65,7 @@ public class HugeDBHierarchyFile {
 
 	private static void error() {
 		System.out.println("usage:");
-		System.out.println("\tjava -jar HugeDBHierarchyFile.jar {settingFile}");
+		System.out.println("\tjava jp.ac.osakac.wdht.HugeDBHierarchyFile.jar HugeGraphFileDBRegister <setting file>");
 	}
 
 	public HugeDBHierarchyFile(String iniFile) throws FileNotFoundException {
@@ -227,6 +227,13 @@ public class HugeDBHierarchyFile {
 					val = val.substring(1, val.length()-1);
 				}
 				this.outUpperFile = new File(val.trim());
+				//指定したディレクトリが存在しないときのエラー回避処理
+				File parent = outUpperFile.getParentFile();
+				if(parent!=null) {
+					if(!parent.exists()) {
+						parent.mkdirs();
+					}
+				}
 			}
 			if (cmd.equals("inputupperlist")) {
 				val = val.trim();
@@ -249,6 +256,14 @@ public class HugeDBHierarchyFile {
 					val = val.substring(1, val.length()-1);
 				}
 				this.outFile = new File(val.trim());
+				//指定したディレクトリが存在しないときのエラー回避処理
+				File parent = outFile.getParentFile();
+				if(parent!=null) {
+					if(!parent.exists()) {
+						parent.mkdirs();
+					}
+				}
+				
 			}
 			if (cmd.equals("getlabel")) {
 				this.isGetLabel = val.trim().toLowerCase().equals("yes");
@@ -316,19 +331,25 @@ public class HugeDBHierarchyFile {
 
 		// キーワードを取得
 		try {
-			wordList = getLineList(this.wordFile);
-			stopList = getLineList(this.stopFile);
+			if(this.wordFile!=null) {
+				wordList = getLineList(this.wordFile);
+			}
+			if(this.stopFile!=null) {
+				stopList = getLineList(this.stopFile);	
+			}
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
-		if (wordList == null) {
-			System.err.println("File Error:["+this.wordFile+"]");
-		}
+		
 
 		List<String> globalConceptList = null;
 
 		if (this.source.equals("word")) {
+			if (wordList == null) {
+				System.err.println("File Error:wordList ["+this.wordFile+"] is not founded.");
+			}
+			
 			// キーワードに対応する概念と，その上位階層を取得
 			for (String word : wordList) {
 				getUpperMap(hg, hgf, word, map);
@@ -819,8 +840,10 @@ System.out.println(" *skip");
 			return count;
 		}
 		// ストップリストに追加されていれば下位は取得しない
-		if (stopList.contains(concept)) {
-			return count;
+		if(stopList!=null) {
+			if (stopList.contains(concept)) {
+				return count;
+			}
 		}
 
 		if (!(lowerMap.contains(concept) && this.isStopDuplication)) {

@@ -3,5 +3,10 @@
 /store/
 *.jar
 *.zip
-ont_test2.nt
-ont_test2.nt
+/wd-all
+*.classpath
+*.project
+*.bat
+/output/
+/store_test/
+/settings/example/
